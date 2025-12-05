@@ -69,7 +69,6 @@
         text-shadow: 4px 4px 0 var(--brand-teal);
       }
 
-      /* تنسيق البرق */
       .bolt-char {
         display: inline-block;
         width: 50px;
@@ -145,7 +144,7 @@
         box-shadow: 5px 5px 0 var(--text-color);
       }
 
-      /* --- GAME BANNER (New Location) --- */
+      /* --- GAME BANNER --- */
       .game-banner-container {
         padding: 20px 15px 5px;
         display: flex;
@@ -209,7 +208,7 @@
         z-index: 1;
       }
 
-      /* --- MENU GRID (Original Design Restored) --- */
+      /* --- MENU GRID --- */
       .menu-grid {
         padding: 15px;
         display: grid;
@@ -275,7 +274,7 @@
         margin-left: 10px;
       }
 
-      /* --- GAME MODAL (Popup) --- */
+      /* --- GAME MODAL --- */
       .modal-overlay {
         position: fixed;
         top: 0;
@@ -284,7 +283,7 @@
         height: 100%;
         background: rgba(0, 0, 0, 0.85);
         z-index: 200;
-        display: none; /* Hidden by default */
+        display: none;
         justify-content: center;
         align-items: center;
         padding: 20px;
@@ -393,7 +392,6 @@
           <span class="char">L</span>
           <span class="char">I</span>
           <span class="char">T</span>
-
           <div class="bolt-char">
             <svg
               class="bolt-svg"
@@ -415,7 +413,6 @@
       <button class="cat-btn" onclick="filterMenu('dessert')">Dessert</button>
     </div>
 
-    <!-- مكان اللعبة الجديد: زرار عريض واضح تحت التصنيفات -->
     <div class="game-banner-container">
       <button class="game-trigger-btn" onclick="openGame()">
         <svg class="dice-icon" viewBox="0 0 24 24">
@@ -427,7 +424,6 @@
       </button>
     </div>
 
-    <!-- GAME MODAL POPUP -->
     <div class="modal-overlay" id="gameModal">
       <div class="game-box">
         <div class="game-title">PICK MY MOOD</div>
@@ -435,7 +431,6 @@
         <button class="spin-btn" id="spinBtn" onclick="spinWheel()">
           SPIN IT!
         </button>
-
         <button class="close-game" onclick="closeGame()">Close</button>
       </div>
     </div>
@@ -443,7 +438,7 @@
     <div class="menu-grid" id="menuContainer">
       <!-- ================= HOT SECTION ================= -->
 
-      <!-- Speciality Header -->
+      <!-- Speciality -->
       <div class="section-header-wrapper category-hot">
         <div class="section-header">Speciality</div>
       </div>
@@ -457,19 +452,19 @@
       <div class="menu-item category-hot">
         <div class="item-info">
           <h3>KMIX</h3>
-          <p>Speciality</p>
+          <p>Speciality Brew</p>
         </div>
         <div class="item-price">120</div>
       </div>
       <div class="menu-item category-hot">
         <div class="item-info">
           <h3>Syphon</h3>
-          <p>Speciality</p>
+          <p>Vacuum Brew</p>
         </div>
         <div class="item-price">120</div>
       </div>
 
-      <!-- Hot Drinks Header -->
+      <!-- Hot Drinks -->
       <div class="section-header-wrapper category-hot">
         <div class="section-header">Hot Drinks</div>
       </div>
@@ -485,12 +480,12 @@
           <h3>Flavor Tea</h3>
           <p>Mixed</p>
         </div>
-        <div class="item-price">23 / 25</div>
+        <div class="item-price">25</div>
       </div>
       <div class="menu-item category-hot">
         <div class="item-info">
           <h3>Herbs</h3>
-          <p>Hot</p>
+          <p>Natural</p>
         </div>
         <div class="item-price">25</div>
       </div>
@@ -520,113 +515,88 @@
           <h3>Carktea</h3>
           <p>Karak</p>
         </div>
-        <div class="item-price">28 / 30</div>
+        <div class="item-price">30</div>
       </div>
 
-      <!-- Coffee Header -->
+      <!-- Coffee -->
       <div class="section-header-wrapper category-hot">
         <div class="section-header">Coffee</div>
       </div>
       <div class="menu-item teal-style category-hot">
         <div class="item-info">
           <h3>Turkish Coffee</h3>
-          <p>Authentic</p>
+          <p>Medium / Large</p>
         </div>
-        <div class="item-price">20 / 30</div>
-      </div>
-      <div class="menu-item category-hot">
-        <div class="item-info">
-          <h3>French Coffee</h3>
-          <p>With Milk</p>
-        </div>
-        <div class="item-price">40</div>
-      </div>
-      <div class="menu-item category-hot">
-        <div class="item-info">
-          <h3>Hazelnut Coffee</h3>
-          <p>Hot</p>
-        </div>
-        <div class="item-price">40 / 45</div>
-      </div>
-      <div class="menu-item category-hot">
-        <div class="item-info">
-          <h3>Nutella Coffee</h3>
-          <p>Hot</p>
-        </div>
-        <div class="item-price">50 / 55</div>
-      </div>
-
-      <!-- Hot Coffee Header -->
-      <div class="section-header-wrapper category-hot">
-        <div class="section-header">Hot Coffee</div>
+        <div class="item-price">30 M / 35 L</div>
       </div>
       <div class="menu-item category-hot">
         <div class="item-info">
           <h3>Espresso</h3>
-          <p>Single / Double</p>
+          <p>Medium / Large</p>
         </div>
-        <div class="item-price">35 / 48</div>
+        <div class="item-price"><span>M 35</span> / <span>L 50</span></div>
+      </div>
+
+      <div class="menu-item category-hot">
+        <div class="item-info">
+          <h3>Americano</h3>
+          <p>Hot</p>
+        </div>
+        <div class="item-price">60</div>
       </div>
       <div class="menu-item category-hot">
         <div class="item-info">
-          <h3>Campana</h3>
-          <p>Coffee</p>
+          <h3>Avocato</h3>
+          <p>Hot</p>
         </div>
-        <div class="item-price">40 / 50</div>
+        <div class="item-price">65</div>
       </div>
+
+      <!-- Hot Coffee -->
+      <div class="section-header-wrapper category-hot">
+        <div class="section-header">Hot Coffee</div>
+      </div>
+
       <div class="menu-item category-hot">
         <div class="item-info">
           <h3>Caramel Macchiato</h3>
           <p>Hot</p>
         </div>
-        <div class="item-price">65 / 71</div>
+        <div class="item-price">65</div>
       </div>
       <div class="menu-item category-hot">
         <div class="item-info">
           <h3>Latte</h3>
           <p>Hot</p>
         </div>
-        <div class="item-price">60 / 65</div>
+        <div class="item-price">65</div>
       </div>
       <div class="menu-item teal-style category-hot">
         <div class="item-info">
           <h3>Spanish Latte</h3>
           <p>Hot</p>
         </div>
-        <div class="item-price">85 / 95</div>
+        <div class="item-price">85</div>
       </div>
       <div class="menu-item category-hot">
         <div class="item-info">
           <h3>Moka Dark</h3>
           <p>Hot</p>
         </div>
-        <div class="item-price">75 / 85</div>
+        <div class="item-price">75</div>
       </div>
       <div class="menu-item category-hot">
         <div class="item-info">
           <h3>Moka White</h3>
           <p>Hot</p>
         </div>
-        <div class="item-price">80 / 85</div>
+        <div class="item-price">80</div>
       </div>
-      <div class="menu-item category-hot">
-        <div class="item-info">
-          <h3>Americano</h3>
-          <p>Hot</p>
-        </div>
-        <div class="item-price">50 / 60</div>
-      </div>
-      <div class="menu-item category-hot">
-        <div class="item-info">
-          <h3>Avocato</h3>
-          <p>Affogato</p>
-        </div>
-        <div class="item-price">55 / 65</div>
-      </div>
+
       <div class="menu-item paper-style category-hot">
         <div class="item-info">
           <h3>Cappuccino</h3>
-          <p>Hot</p>
+          <p>Foamy</p>
         </div>
         <div class="item-price">69</div>
       </div>
@@ -635,24 +605,45 @@
           <h3>Flat White</h3>
           <p>Hot</p>
         </div>
-        <div class="item-price">72 / 75</div>
+        <div class="item-price">70</div>
       </div>
       <div class="menu-item category-hot">
         <div class="item-info">
           <h3>Cortado</h3>
-          <p>Hot</p>
+          <p>Strong</p>
         </div>
-        <div class="item-price">45 / 49</div>
+        <div class="item-price">65</div>
+      </div>
+      <div class="menu-item category-hot">
+        <div class="item-info">
+          <h3>French Coffee</h3>
+          <p>Strong</p>
+        </div>
+        <div class="item-price">40</div>
       </div>
       <div class="menu-item category-hot">
         <div class="item-info">
           <h3>Macchiato</h3>
           <p>Hot</p>
         </div>
-        <div class="item-price">37 / 42</div>
+        <div class="item-price">45</div>
+      </div>
+      <div class="menu-item category-hot">
+        <div class="item-info">
+          <h3>Nutella Coffee</h3>
+          <p>Hot</p>
+        </div>
+        <div class="item-price">95</div>
+      </div>
+      <div class="menu-item category-hot">
+        <div class="item-info">
+          <h3>Hazelnut Coffee</h3>
+          <p>Hot</p>
+        </div>
+        <div class="item-price">45</div>
       </div>
 
-      <!-- Hot Chocolate Header -->
+      <!-- Hot Chocolate -->
       <div class="section-header-wrapper category-hot">
         <div class="section-header">Hot Chocolate</div>
       </div>
@@ -661,11 +652,11 @@
           <h3>Classic</h3>
           <p>Hot Chocolate</p>
         </div>
-        <div class="item-price">70 / 75</div>
+        <div class="item-price">70</div>
       </div>
       <div class="menu-item category-hot">
         <div class="item-info">
-          <h3>Coconut Hazelnut</h3>
+          <h3>Hot Nutella</h3>
           <p>Hot Chocolate</p>
         </div>
         <div class="item-price">80</div>
@@ -675,26 +666,26 @@
           <h3>Hot Caramel</h3>
           <p>Hot Chocolate</p>
         </div>
-        <div class="item-price">65 / 70</div>
+        <div class="item-price">70</div>
       </div>
       <div class="menu-item category-hot">
         <div class="item-info">
           <h3>Hot Oreo</h3>
           <p>Hot Chocolate</p>
         </div>
-        <div class="item-price">80 / 85</div>
+        <div class="item-price">85</div>
       </div>
 
       <!-- ================= COLD SECTION ================= -->
 
-      <!-- Ice Coffee Header -->
+      <!-- Ice Coffee -->
       <div class="section-header-wrapper category-cold">
         <div class="section-header">Ice Coffee</div>
       </div>
       <div class="menu-item category-cold">
         <div class="item-info">
           <h3>Ice Coffee</h3>
-          <p>Cold</p>
+          <p>Cold Brewed</p>
         </div>
         <div class="item-price">75</div>
       </div>
@@ -703,14 +694,14 @@
           <h3>Ice Latte</h3>
           <p>Cold</p>
         </div>
-        <div class="item-price">80</div>
+        <div class="item-price">70</div>
       </div>
       <div class="menu-item category-cold">
         <div class="item-info">
           <h3>Ice Moka Dark</h3>
           <p>Cold</p>
         </div>
-        <div class="item-price">85</div>
+        <div class="item-price">80</div>
       </div>
       <div class="menu-item category-cold">
         <div class="item-info">
@@ -724,14 +715,14 @@
           <h3>Ice Caramel Macchiato</h3>
           <p>Cold</p>
         </div>
-        <div class="item-price">85 / 88</div>
+        <div class="item-price">85</div>
       </div>
       <div class="menu-item teal-style category-cold">
         <div class="item-info">
           <h3>Ice Spanish Latte</h3>
           <p>Cold</p>
         </div>
-        <div class="item-price">95 / 98</div>
+        <div class="item-price">95</div>
       </div>
       <div class="menu-item category-cold">
         <div class="item-info">
@@ -745,10 +736,10 @@
           <h3>Ice Chocolate</h3>
           <p>Cold</p>
         </div>
-        <div class="item-price">90 / 95</div>
+        <div class="item-price">70</div>
       </div>
 
-      <!-- Frappe Header -->
+      <!-- Frappe -->
       <div class="section-header-wrapper category-cold">
         <div class="section-header">Frappe</div>
       </div>
@@ -757,7 +748,7 @@
           <h3>Blitz Frappe</h3>
           <p>Signature</p>
         </div>
-        <div class="item-price">120</div>
+        <div class="item-price">109</div>
       </div>
       <div class="menu-item category-cold">
         <div class="item-info">
@@ -766,13 +757,13 @@
         </div>
         <div class="item-price">85</div>
       </div>
-      <div class="menu-item category-cold">
+      <!-- <div class="menu-item category-cold">
         <div class="item-info">
           <h3>Vanilla Frappe</h3>
           <p>Blended</p>
         </div>
         <div class="item-price">70</div>
-      </div>
+      </div> -->
       <div class="menu-item category-cold">
         <div class="item-info">
           <h3>Moka Frappe</h3>
@@ -794,15 +785,8 @@
         </div>
         <div class="item-price">75</div>
       </div>
-      <div class="menu-item category-cold">
-        <div class="item-info">
-          <h3>Pistachio Frappe</h3>
-          <p>Blended</p>
-        </div>
-        <div class="item-price">95</div>
-      </div>
 
-      <!-- Milkshake Header -->
+      <!-- Milkshake -->
       <div class="section-header-wrapper category-cold">
         <div class="section-header">Milkshake</div>
       </div>
@@ -857,17 +841,45 @@
       </div>
       <div class="menu-item category-cold">
         <div class="item-info">
+          <h3>Vanilla</h3>
+          <p>Shake</p>
+        </div>
+        <div class="item-price">85</div>
+      </div>
+      <div class="menu-item category-cold">
+        <div class="item-info">
+          <h3>Chocolate</h3>
+          <p>Shake</p>
+        </div>
+        <div class="item-price">85</div>
+      </div>
+      <div class="menu-item category-cold">
+        <div class="item-info">
+          <h3>Strawberry</h3>
+          <p>Shake</p>
+        </div>
+        <div class="item-price">90</div>
+      </div>
+      <div class="menu-item category-cold">
+        <div class="item-info">
+          <h3>Mango</h3>
+          <p>Shake</p>
+        </div>
+        <div class="item-price">90</div>
+      </div>
+      <div class="menu-item category-cold">
+        <div class="item-info">
           <h3>Oreo</h3>
           <p>Shake</p>
         </div>
-        <div class="item-price">90 / 96</div>
+        <div class="item-price">96</div>
       </div>
       <div class="menu-item category-cold">
         <div class="item-info">
           <h3>Nutella</h3>
           <p>Shake</p>
         </div>
-        <div class="item-price">95 / 98</div>
+        <div class="item-price">95</div>
       </div>
       <div class="menu-item category-cold">
         <div class="item-info">
@@ -876,8 +888,15 @@
         </div>
         <div class="item-price">85</div>
       </div>
+      <div class="menu-item category-cold">
+        <div class="item-info">
+          <h3>Banana Caramel</h3>
+          <p>Shake</p>
+        </div>
+        <div class="item-price">90</div>
+      </div>
 
-      <!-- Fresh Drinks Header -->
+      <!-- Fresh Drinks -->
       <div class="section-header-wrapper category-cold">
         <div class="section-header">Fresh Drinks</div>
       </div>
@@ -886,21 +905,21 @@
           <h3>Watermelon</h3>
           <p>Fresh</p>
         </div>
-        <div class="item-price">50 / 65</div>
+        <div class="item-price">65</div>
       </div>
       <div class="menu-item category-cold">
         <div class="item-info">
           <h3>Limon Mint</h3>
           <p>Fresh</p>
         </div>
-        <div class="item-price">30 / 65</div>
+        <div class="item-price">65</div>
       </div>
       <div class="menu-item category-cold">
         <div class="item-info">
           <h3>Guava</h3>
           <p>Fresh</p>
         </div>
-        <div class="item-price">45 / 65</div>
+        <div class="item-price">65</div>
       </div>
       <div class="menu-item category-cold">
         <div class="item-info">
@@ -921,31 +940,31 @@
           <h3>Mango</h3>
           <p>Fresh</p>
         </div>
-        <div class="item-price">48 / 70</div>
+        <div class="item-price">70</div>
       </div>
       <div class="menu-item category-cold">
         <div class="item-info">
           <h3>Strawberry</h3>
           <p>Fresh</p>
         </div>
-        <div class="item-price">48 / 65</div>
+        <div class="item-price">65</div>
       </div>
       <div class="menu-item category-cold">
         <div class="item-info">
           <h3>Dates</h3>
           <p>With Milk</p>
         </div>
-        <div class="item-price">70 / 75</div>
+        <div class="item-price">75</div>
       </div>
       <div class="menu-item category-cold">
         <div class="item-info">
           <h3>Avocado</h3>
           <p>Fresh</p>
         </div>
-        <div class="item-price">90 / 95</div>
+        <div class="item-price">95</div>
       </div>
 
-      <!-- Smoothie Header -->
+      <!-- Smoothie -->
       <div class="section-header-wrapper category-cold">
         <div class="section-header">Smoothie</div>
       </div>
@@ -954,7 +973,14 @@
           <h3>Watermelon</h3>
           <p>Smoothie</p>
         </div>
-        <div class="item-price">55 / 70</div>
+        <div class="item-price">70</div>
+      </div>
+      <div class="menu-item category-cold">
+        <div class="item-info">
+          <h3>Watermelon Mint</h3>
+          <p>Smoothie</p>
+        </div>
+        <div class="item-price">75</div>
       </div>
       <div class="menu-item category-cold">
         <div class="item-info">
@@ -972,20 +998,65 @@
       </div>
       <div class="menu-item category-cold">
         <div class="item-info">
-          <h3>Peach</h3>
+          <h3>Blue Lemon</h3>
+          <p>Smoothie</p>
+        </div>
+        <div class="item-price">70</div>
+      </div>
+      <div class="menu-item category-cold">
+        <div class="item-info">
+          <h3>Strawberry Lemon</h3>
+          <p>Smoothie</p>
+        </div>
+        <div class="item-price">70</div>
+      </div>
+      <div class="menu-item category-cold">
+        <div class="item-info">
+          <h3>Peach Passion</h3>
           <p>Smoothie</p>
         </div>
         <div class="item-price">80</div>
       </div>
+
+      <div class="menu-item category-cold">
+        <div class="item-info">
+          <h3>Mango</h3>
+          <p>Smoothie</p>
+        </div>
+        <div class="item-price">70</div>
+      </div>
+      <div class="menu-item category-cold">
+        <div class="item-info">
+          <h3>Strawberry</h3>
+          <p>Smoothie</p>
+        </div>
+        <div class="item-price">65</div>
+      </div>
+      <div class="menu-item category-cold">
+        <div class="item-info">
+          <h3>Kiwi</h3>
+          <p>Smoothie</p>
+        </div>
+        <div class="item-price">85</div>
+      </div>
+
+      <div class="menu-item category-cold">
+        <div class="item-info">
+          <h3>Beach Mango</h3>
+          <p>Smoothie</p>
+        </div>
+        <div class="item-price">80</div>
+      </div>
+
       <div class="menu-item category-cold">
         <div class="item-info">
           <h3>Pina Colada</h3>
           <p>Smoothie</p>
         </div>
-        <div class="item-price">85 / 90</div>
+        <div class="item-price">85</div>
       </div>
 
-      <!-- Mojito Header -->
+      <!-- Mojito -->
       <div class="section-header-wrapper category-cold">
         <div class="section-header">Mojito</div>
       </div>
@@ -994,7 +1065,7 @@
           <h3>Passion Fruit</h3>
           <p>Mojito</p>
         </div>
-        <div class="item-price">60 / 70</div>
+        <div class="item-price">70</div>
       </div>
       <div class="menu-item category-cold">
         <div class="item-info">
@@ -1012,17 +1083,17 @@
       </div>
       <div class="menu-item category-cold">
         <div class="item-info">
-          <h3>Coco Blue</h3>
+          <h3>Cherry Cola</h3>
           <p>Mojito</p>
         </div>
-        <div class="item-price">100</div>
+        <div class="item-price">60</div>
       </div>
       <div class="menu-item category-cold">
         <div class="item-info">
           <h3>Classic</h3>
           <p>Mojito</p>
         </div>
-        <div class="item-price">60 / 85</div>
+        <div class="item-price">60</div>
       </div>
       <div class="menu-item category-cold">
         <div class="item-info">
@@ -1033,13 +1104,27 @@
       </div>
       <div class="menu-item category-cold">
         <div class="item-info">
+          <h3>Blueberry</h3>
+          <p>Mojito</p>
+        </div>
+        <div class="item-price">65</div>
+      </div>
+      <div class="menu-item category-cold">
+        <div class="item-info">
+          <h3>Raspberry</h3>
+          <p>Mojito</p>
+        </div>
+        <div class="item-price">65</div>
+      </div>
+      <div class="menu-item category-cold">
+        <div class="item-info">
           <h3>Energy</h3>
           <p>Mojito</p>
         </div>
-        <div class="item-price">100</div>
+        <div class="item-price">107</div>
       </div>
 
-      <!-- Soda Header -->
+      <!-- Soda -->
       <div class="section-header-wrapper category-cold">
         <div class="section-header">Soda</div>
       </div>
@@ -1048,21 +1133,21 @@
           <h3>Pepsi / 7up</h3>
           <p>Soft Drink</p>
         </div>
-        <div class="item-price">28 / 34</div>
+        <div class="item-price">28</div>
       </div>
       <div class="menu-item category-cold">
         <div class="item-info">
           <h3>Redbull</h3>
           <p>Energy</p>
         </div>
-        <div class="item-price">75 / 88</div>
+        <div class="item-price">75</div>
       </div>
       <div class="menu-item category-cold">
         <div class="item-info">
           <h3>Brill</h3>
           <p>Soda</p>
         </div>
-        <div class="item-price">40 / 50</div>
+        <div class="item-price">40</div>
       </div>
       <div class="menu-item category-cold">
         <div class="item-info">
@@ -1074,7 +1159,7 @@
 
       <!-- ================= DESSERT SECTION ================= -->
 
-      <!-- Waffle Header -->
+      <!-- Waffle -->
       <div class="section-header-wrapper category-dessert">
         <div class="section-header">Waffle</div>
       </div>
@@ -1097,7 +1182,7 @@
           <h3>Nutella</h3>
           <p>Waffle</p>
         </div>
-        <div class="item-price">100 / 120</div>
+        <div class="item-price">100</div>
       </div>
       <div class="menu-item paper-style category-dessert">
         <div class="item-info">
@@ -1118,14 +1203,14 @@
           <h3>White Chocolate</h3>
           <p>Waffle</p>
         </div>
-        <div class="item-price">95 / 100</div>
+        <div class="item-price">100</div>
       </div>
       <div class="menu-item category-dessert">
         <div class="item-info">
           <h3>Lotus</h3>
           <p>Waffle</p>
         </div>
-        <div class="item-price">90 / 100</div>
+        <div class="item-price">90</div>
       </div>
       <div class="menu-item category-dessert">
         <div class="item-info">
@@ -1135,51 +1220,32 @@
         <div class="item-price">130</div>
       </div>
 
-      <!-- Desserts Header -->
+      <!-- Desserts -->
       <div class="section-header-wrapper category-dessert">
         <div class="section-header">Desserts</div>
       </div>
-      <div class="menu-item category-dessert">
-        <div class="item-info">
-          <h3>Cinnabon / Cake</h3>
-          <p>Dessert</p>
-        </div>
-        <div class="item-price">95</div>
-      </div>
+
       <div class="menu-item paper-style category-dessert">
         <div class="item-info">
           <h3>San Sebastian</h3>
-          <p>Dessert</p>
+          <p>Cake</p>
         </div>
         <div class="item-price">99</div>
       </div>
       <div class="menu-item category-dessert">
         <div class="item-info">
           <h3>Cheesecake</h3>
-          <p>Dessert</p>
+          <p>Cake</p>
         </div>
-        <div class="item-price">74 / 78</div>
+        <div class="item-price">78</div>
       </div>
-      <div class="menu-item teal-style category-dessert">
-        <div class="item-info">
-          <h3>Molten Cake</h3>
-          <p>Dessert</p>
-        </div>
-        <div class="item-price">90 / 95</div>
-      </div>
-      <div class="menu-item category-dessert">
-        <div class="item-info">
-          <h3>Tiramisu / Truffle</h3>
-          <p>Dessert</p>
-        </div>
-        <div class="item-price">89</div>
-      </div>
+
       <div class="menu-item category-dessert">
         <div class="item-info">
           <h3>Red Velvet</h3>
-          <p>Dessert</p>
+          <p>Cake</p>
         </div>
-        <div class="item-price">86</div>
+        <div class="item-price">89</div>
       </div>
       <div class="menu-item category-dessert">
         <div class="item-info">
@@ -1188,8 +1254,15 @@
         </div>
         <div class="item-price">97</div>
       </div>
+      <div class="menu-item category-dessert">
+        <div class="item-info">
+          <h3>Volcano</h3>
+          <p>Dessert</p>
+        </div>
+        <div class="item-price">95</div>
+      </div>
 
-      <!-- Extras Header -->
+      <!-- Extra -->
       <div
         class="section-header-wrapper category-hot category-cold category-dessert"
       >
@@ -1281,13 +1354,12 @@
       let availableItems = [];
       let isSpinning = false;
 
-      // Load items on startup
       window.onload = function () {
         const itemElements = document.querySelectorAll(".item-info h3");
         itemElements.forEach((el) => {
           if (el.innerText) allItems.push(el.innerText);
         });
-        availableItems = [...allItems]; // Copy full list
+        availableItems = [...allItems];
       };
 
       function openGame() {
@@ -1295,7 +1367,7 @@
       }
 
       function closeGame() {
-        if (isSpinning) return; // Don't close while spinning
+        if (isSpinning) return;
         document.getElementById("gameModal").style.display = "none";
       }
 
@@ -1304,7 +1376,6 @@
 
         const resultDisplay = document.getElementById("gameResult");
 
-        // Reset check
         if (availableItems.length === 0) {
           resultDisplay.innerText = "RESETTING LIST...";
           setTimeout(() => {
@@ -1317,7 +1388,6 @@
         isSpinning = true;
         document.getElementById("spinBtn").innerText = "SPINNING...";
 
-        // Rolling Animation
         let interval = setInterval(() => {
           const randomIndex = Math.floor(Math.random() * allItems.length);
           resultDisplay.innerText = allItems[randomIndex];
@@ -1325,18 +1395,12 @@
             Math.random() > 0.5 ? "#fff" : "var(--brand-yellow)";
         }, 50);
 
-        // Stop after random time (1.5s to 2.5s)
         setTimeout(() => {
           clearInterval(interval);
-
-          // Pick real winner from availableItems
           const winnerIndex = Math.floor(Math.random() * availableItems.length);
           const winner = availableItems[winnerIndex];
-
-          // Remove winner from available so it doesn't repeat
           availableItems.splice(winnerIndex, 1);
 
-          // Display Winner
           resultDisplay.innerText = winner;
           resultDisplay.style.color = "var(--brand-teal)";
           resultDisplay.style.textShadow = "0 0 10px #fff";
