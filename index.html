@@ -1,30 +1,27 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>BLITZ CAFE</title>
-    <!-- Fonts -->
+    <title>BLIT CAFE</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=VT323&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Cairo:wght@400;700;900&family=VT323&display=swap"
       rel="stylesheet"
     />
 
     <style>
       :root {
-        /* نفس ألوان التصميم اللي عجبك */
         --bg-color: #f4f6f8;
         --text-color: #212121;
-        --brand-yellow: #ffc107; /* أصفر البرق */
+        --brand-yellow: #ffc107;
         --brand-teal: #00bcd4;
-        --wood-color: #5d4037;
       }
 
       * {
         box-sizing: border-box;
         margin: 0;
         padding: 0;
-        user-select: none;
         -webkit-tap-highlight-color: transparent;
       }
 
@@ -33,7 +30,6 @@
         color: var(--text-color);
         font-family: "Cairo", sans-serif;
         overflow-x: hidden;
-        /* خلفية شبكية */
         background-image: linear-gradient(
             rgba(0, 188, 212, 0.1) 1px,
             transparent 1px
@@ -43,93 +39,103 @@
         padding-bottom: 80px;
       }
 
-      /* --- HEADER & LOGO --- */
+      /* --- HEADER --- */
       header {
         text-align: center;
-        padding: 30px 20px;
-        position: relative;
+        padding: 50px 20px 40px;
         background: #fff;
         border-bottom: 4px solid var(--text-color);
-        /* القصة الروشة اللي تحت */
         clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%);
-        margin-bottom: 25px;
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
       }
 
-      .logo-container {
-        width: 100px;
-        height: 100px;
-        margin: 0 auto;
+      .logo-text-wrapper {
         position: relative;
-        background: var(--text-color);
-        border-radius: 50%;
+        display: inline-block;
+        animation: float-vibe 3s ease-in-out infinite;
+      }
+
+      .blit-word {
+        font-family: "Anton", sans-serif;
+        font-size: 6rem;
+        color: var(--text-color);
+        line-height: 1;
+        letter-spacing: 5px;
         display: flex;
         align-items: center;
-        justify-content: center;
-        border: 4px solid var(--brand-yellow);
-        box-shadow: 0 0 15px var(--brand-yellow); /* توهج أصفر */
-        animation: electric-pulse 2s infinite;
+        text-shadow: 4px 4px 0 var(--brand-teal);
       }
 
-      /* رسمة البرق */
-      .lightning-bolt {
-        width: 45px;
-        height: 65px;
-        background: var(--brand-yellow);
-        /* رسم شكل الصاعقة */
-        clip-path: polygon(
-          60% 0,
-          100% 0,
-          45% 55%,
-          85% 55%,
-          10% 100%,
-          40% 45%,
-          0 45%
-        );
-        animation: shock-shake 3s infinite; /* أنيميشن الرعشة */
-        z-index: 2;
-      }
-
-      h1.glitch-text {
-        font-size: 3.5rem;
-        font-weight: 900;
-        margin-top: 15px;
+      /* تنسيق البرق الجديد */
+      .bolt-char {
+        display: inline-block;
+        width: 50px;
+        height: 100px;
+        margin: 0 2px;
         position: relative;
-        color: var(--text-color);
-        text-shadow: 3px 3px 0 var(--brand-yellow),
-          -2px -2px 0 var(--brand-teal);
-        animation: glitch-skew 2s infinite linear alternate-reverse;
-        text-transform: uppercase;
+        transform: translateY(5px);
+        z-index: 10;
+      }
+
+      .bolt-svg {
+        width: 100%;
+        height: 100%;
+        fill: var(--brand-yellow);
+        stroke: var(--text-color);
+        stroke-width: 2px;
+        /* توهج طبيعي للبرق */
+        filter: drop-shadow(0 0 5px var(--brand-yellow));
+        animation: electric-shock 1.5s infinite;
+      }
+
+      .slogan {
         font-family: "VT323", monospace;
+        font-size: 1.3rem;
+        margin-top: 15px;
+        background: var(--text-color);
+        color: var(--brand-yellow);
+        padding: 4px 15px;
+        transform: rotate(-2deg);
+        box-shadow: 4px 4px 0 var(--brand-teal);
+        text-transform: uppercase;
         letter-spacing: 2px;
       }
 
-      /* --- CATEGORIES --- */
+      /* --- NAVBAR / CATEGORIES --- */
       .categories {
         display: flex;
         justify-content: center;
-        gap: 10px;
-        padding: 10px;
-        flex-wrap: wrap;
+        gap: 8px;
+        padding: 10px 15px;
         position: sticky;
         top: 0;
         z-index: 50;
-        background: rgba(244, 246, 248, 0.9);
+        background: rgba(244, 246, 248, 0.95);
         backdrop-filter: blur(5px);
+        flex-wrap: nowrap;
+        overflow-x: auto;
       }
 
       .cat-btn {
         background: #fff;
         border: 2px solid var(--text-color);
         color: var(--text-color);
-        padding: 8px 20px;
+        padding: 10px 0;
+        width: 100%;
+        flex: 1;
         font-family: "Cairo", sans-serif;
         font-weight: 800;
         font-size: 1rem;
         cursor: pointer;
         transition: 0.2s;
-        border-radius: 2px;
-        box-shadow: 4px 4px 0 var(--brand-teal);
+        border-radius: 4px;
+        box-shadow: 3px 3px 0 var(--brand-teal);
         text-transform: uppercase;
+        text-align: center;
+        min-width: 80px;
       }
 
       .cat-btn.active,
@@ -137,15 +143,39 @@
         background: var(--brand-yellow);
         color: #000;
         transform: translate(-2px, -2px);
-        box-shadow: 6px 6px 0 var(--text-color);
+        box-shadow: 5px 5px 0 var(--text-color);
+      }
+
+      /* --- SUB-HEADERS (الستايل الأصفر القديم) --- */
+      .section-header-wrapper {
+        grid-column: 1 / -1;
+        margin: 35px 0 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .section-header {
+        /* الستايل الأصفر */
+        background: var(--brand-yellow);
+        color: #000;
+        padding: 8px 35px;
+        font-family: "Anton", sans-serif;
+        font-size: 1.8rem;
+        text-transform: uppercase;
+        border: 3px solid var(--text-color); /* حدود سوداء */
+        transform: rotate(-2deg); /* ميلان */
+        box-shadow: 5px 5px 0 var(--text-color); /* ظل أسود حاد */
+        letter-spacing: 2px;
+        position: relative;
+        z-index: 1;
       }
 
       /* --- MENU GRID --- */
       .menu-grid {
         padding: 15px;
         display: grid;
-        gap: 20px;
-        /* لو الشاشة كبرت يعرض عمودين */
+        gap: 15px;
         grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
       }
 
@@ -160,15 +190,16 @@
         justify-content: space-between;
         align-items: center;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        border-radius: 4px;
       }
 
-      /* ستايل المخدات الصفراء */
+      /* Styles */
       .paper-style {
         background: var(--brand-yellow);
         color: #000;
         border: 2px solid #000;
-        transform: rotate(-1deg);
-        box-shadow: 5px 5px 0 var(--text-color);
+        transform: rotate(-0.5deg);
+        box-shadow: 4px 4px 0 var(--text-color);
       }
       .paper-style .item-price {
         background: #000;
@@ -176,7 +207,6 @@
         border: none;
       }
 
-      /* ستايل القط الأزرق */
       .teal-style {
         border-right: 8px solid var(--brand-teal);
       }
@@ -184,11 +214,10 @@
       .item-info h3 {
         font-size: 1.2rem;
         font-weight: 800;
-        margin-bottom: 2px;
+        margin-bottom: 4px;
       }
-
       .item-info p {
-        font-size: 0.8rem;
+        font-size: 0.85rem;
         color: #555;
         font-weight: 600;
       }
@@ -208,135 +237,65 @@
         margin-left: 10px;
       }
 
-      /* --- FOOTER & MARQUEE --- */
-      .marquee-container {
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-        background: var(--text-color);
-        color: var(--brand-yellow);
-        font-weight: bold;
-        padding: 8px 0;
-        overflow: hidden;
-        white-space: nowrap;
-        border-top: 4px solid var(--brand-yellow);
-        z-index: 100;
-      }
-
-      .marquee-content {
-        display: inline-block;
-        animation: marquee 10s linear infinite;
-        font-size: 1.2rem;
-        font-family: "VT323", monospace;
-      }
-
-      .order-btn {
-        display: block;
-        width: 90%;
-        margin: 0 auto;
-        position: fixed;
-        bottom: 50px;
-        left: 50%;
-        transform: translateX(-50%);
-        padding: 12px;
-        background: var(--brand-teal);
-        color: #fff;
-        text-align: center;
-        font-weight: 900;
-        font-size: 1.2rem;
-        border: 3px solid var(--text-color);
-        text-transform: uppercase;
-        cursor: pointer;
-        box-shadow: 4px 4px 0 #000;
-        z-index: 99;
-      }
-      .order-btn:active {
-        transform: translateX(-50%) translate(2px, 2px);
-        box-shadow: 2px 2px 0 #000;
-      }
-
-      /* --- ANIMATIONS --- */
-      @keyframes marquee {
+      @keyframes electric-shock {
         0% {
-          transform: translateX(100%);
-        }
-        100% {
-          transform: translateX(-100%);
-        }
-      }
-
-      @keyframes glitch-skew {
-        0% {
-          transform: skew(0deg);
-        }
-        20% {
-          transform: skew(-2deg);
-        }
-        40% {
-          transform: skew(2deg);
-        }
-        60% {
-          transform: skew(0deg);
-        }
-        80% {
-          transform: skew(-1deg);
-        }
-        100% {
-          transform: skew(0deg);
-        }
-      }
-
-      @keyframes shock-shake {
-        0%,
-        100% {
-          transform: scale(1) rotate(0deg);
-          opacity: 1;
+          fill: var(--brand-yellow);
+          transform: scale(1);
         }
         5% {
-          transform: scale(1.1) rotate(5deg);
-          opacity: 0.8;
+          fill: #fff;
+          transform: scale(1.1) rotate(2deg);
         }
         10% {
-          transform: scale(1) rotate(-5deg);
-          opacity: 1;
+          fill: var(--brand-yellow);
+          transform: scale(1) rotate(-2deg);
         }
         15% {
           transform: scale(1) rotate(0deg);
         }
+        100% {
+          transform: scale(1);
+        }
       }
 
-      @keyframes electric-pulse {
-        0% {
-          box-shadow: 0 0 5px var(--brand-yellow);
+      @keyframes float-vibe {
+        0%,
+        100% {
+          transform: translateY(0);
         }
         50% {
-          box-shadow: 0 0 20px var(--brand-yellow), 0 0 10px var(--brand-teal);
+          transform: translateY(-5px);
         }
-        100% {
-          box-shadow: 0 0 5px var(--brand-yellow);
-        }
+      }
+
+      .hidden {
+        display: none !important;
       }
     </style>
   </head>
   <body>
     <header>
-      <div class="logo-container">
-        <!-- البرق بدل المثلث -->
-        <div class="lightning-bolt"></div>
+      <div class="logo-text-wrapper">
+        <div class="blit-word">
+          <span class="char">B</span>
+          <span class="char">L</span>
+          <span class="char">I</span>
+          <span class="char">T</span>
+
+          <!-- البرق بشكله الجديد -->
+          <div class="bolt-char">
+            <svg
+              class="bolt-svg"
+              viewBox="0 0 60 100"
+              preserveAspectRatio="none"
+            >
+              <!-- رسمة برق حادة وطبيعية -->
+              <path d="M40 0 L15 50 L35 50 L10 100 L50 40 L30 40 L55 0 Z" />
+            </svg>
+          </div>
+        </div>
       </div>
-      <h1 class="glitch-text" data-text="BLITZ">BLITZ</h1>
-      <p
-        style="
-          font-size: 0.9rem;
-          font-weight: bold;
-          color: var(--wood-color);
-          letter-spacing: 2px;
-          margin-top: 5px;
-          text-transform: uppercase;
-        "
-      >
-        High Voltage Coffee
-      </p>
+      <div class="slogan">your mood your Gen your mix</div>
     </header>
 
     <div class="categories">
@@ -347,214 +306,841 @@
     </div>
 
     <div class="menu-grid" id="menuContainer">
-      <!-- === HOT DRINKS === -->
-      <div class="menu-item teal-style category-hot">
-        <div class="item-info">
-          <h3>V60 Mystery</h3>
-          <p>Specialty Coffee</p>
-        </div>
-        <div class="item-price">65 LE</div>
-      </div>
-      <div class="menu-item category-hot">
-        <div class="item-info">
-          <h3>Spanish Latte</h3>
-          <p>Hot</p>
-        </div>
-        <div class="item-price">55 LE</div>
+      <!-- ================= HOT SECTION ================= -->
+
+      <!-- Speciality Header -->
+      <div class="section-header-wrapper category-hot">
+        <div class="section-header">Speciality</div>
       </div>
       <div class="menu-item paper-style category-hot">
         <div class="item-info">
-          <h3>Turkish Coffee</h3>
-          <p>Authentic</p>
+          <h3>V60</h3>
+          <p>Speciality Drip</p>
         </div>
-        <div class="item-price">20/30</div>
+        <div class="item-price">120</div>
       </div>
       <div class="menu-item category-hot">
         <div class="item-info">
-          <h3>Espresso</h3>
-          <p>Single/Double</p>
+          <h3>KMIX</h3>
+          <p>Speciality</p>
         </div>
-        <div class="item-price">35/43</div>
+        <div class="item-price">120</div>
       </div>
       <div class="menu-item category-hot">
         <div class="item-info">
-          <h3>Americano</h3>
-          <p>Strong</p>
+          <h3>Syphon</h3>
+          <p>Speciality</p>
         </div>
-        <div class="item-price">50 LE</div>
+        <div class="item-price">120</div>
       </div>
-      <div class="menu-item category-hot">
-        <div class="item-info">
-          <h3>Flat White</h3>
-          <p>Rich</p>
-        </div>
-        <div class="item-price">75 LE</div>
-      </div>
-      <div class="menu-item teal-style category-hot">
-        <div class="item-info">
-          <h3>Cappuccino</h3>
-          <p>Creamy</p>
-        </div>
-        <div class="item-price">69 LE</div>
-      </div>
-      <div class="menu-item category-hot">
-        <div class="item-info">
-          <h3>Hot Chocolate</h3>
-          <p>Classic</p>
-        </div>
-        <div class="item-price">75 LE</div>
+
+      <!-- Hot Drinks Header -->
+      <div class="section-header-wrapper category-hot">
+        <div class="section-header">Hot Drinks</div>
       </div>
       <div class="menu-item category-hot">
         <div class="item-info">
           <h3>Tea</h3>
-          <p>Standard</p>
+          <p>Regular</p>
         </div>
-        <div class="item-price">15 LE</div>
+        <div class="item-price">15</div>
+      </div>
+      <div class="menu-item category-hot">
+        <div class="item-info">
+          <h3>Flavor Tea</h3>
+          <p>Mixed</p>
+        </div>
+        <div class="item-price">23 / 25</div>
+      </div>
+      <div class="menu-item category-hot">
+        <div class="item-info">
+          <h3>Herbs</h3>
+          <p>Hot</p>
+        </div>
+        <div class="item-price">25</div>
+      </div>
+      <div class="menu-item category-hot">
+        <div class="item-info">
+          <h3>Hot Cider</h3>
+          <p>Apple</p>
+        </div>
+        <div class="item-price">55</div>
+      </div>
+      <div class="menu-item category-hot">
+        <div class="item-info">
+          <h3>Tea with Milk</h3>
+          <p>Hot</p>
+        </div>
+        <div class="item-price">30</div>
+      </div>
+      <div class="menu-item category-hot">
+        <div class="item-info">
+          <h3>Cinnamon Milk</h3>
+          <p>Hot</p>
+        </div>
+        <div class="item-price">49</div>
+      </div>
+      <div class="menu-item category-hot">
+        <div class="item-info">
+          <h3>Carktea</h3>
+          <p>Karak</p>
+        </div>
+        <div class="item-price">28 / 30</div>
       </div>
 
-      <!-- === COLD DRINKS === -->
+      <!-- Coffee Header -->
+      <div class="section-header-wrapper category-hot">
+        <div class="section-header">Coffee</div>
+      </div>
+      <div class="menu-item teal-style category-hot">
+        <div class="item-info">
+          <h3>Turkish Coffee</h3>
+          <p>Authentic</p>
+        </div>
+        <div class="item-price">20 / 30</div>
+      </div>
+      <div class="menu-item category-hot">
+        <div class="item-info">
+          <h3>French Coffee</h3>
+          <p>With Milk</p>
+        </div>
+        <div class="item-price">40</div>
+      </div>
+      <div class="menu-item category-hot">
+        <div class="item-info">
+          <h3>Hazelnut Coffee</h3>
+          <p>Hot</p>
+        </div>
+        <div class="item-price">40 / 45</div>
+      </div>
+      <div class="menu-item category-hot">
+        <div class="item-info">
+          <h3>Nutella Coffee</h3>
+          <p>Hot</p>
+        </div>
+        <div class="item-price">50 / 55</div>
+      </div>
+
+      <!-- Hot Coffee Header -->
+      <div class="section-header-wrapper category-hot">
+        <div class="section-header">Hot Coffee</div>
+      </div>
+      <div class="menu-item category-hot">
+        <div class="item-info">
+          <h3>Espresso</h3>
+          <p>Single / Double</p>
+        </div>
+        <div class="item-price">35 / 48</div>
+      </div>
+      <div class="menu-item category-hot">
+        <div class="item-info">
+          <h3>Campana</h3>
+          <p>Coffee</p>
+        </div>
+        <div class="item-price">40 / 50</div>
+      </div>
+      <div class="menu-item category-hot">
+        <div class="item-info">
+          <h3>Caramel Macchiato</h3>
+          <p>Hot</p>
+        </div>
+        <div class="item-price">65 / 71</div>
+      </div>
+      <div class="menu-item category-hot">
+        <div class="item-info">
+          <h3>Latte</h3>
+          <p>Hot</p>
+        </div>
+        <div class="item-price">60 / 65</div>
+      </div>
+      <div class="menu-item teal-style category-hot">
+        <div class="item-info">
+          <h3>Spanish Latte</h3>
+          <p>Hot</p>
+        </div>
+        <div class="item-price">85 / 95</div>
+      </div>
+      <div class="menu-item category-hot">
+        <div class="item-info">
+          <h3>Moka Dark</h3>
+          <p>Hot</p>
+        </div>
+        <div class="item-price">75 / 85</div>
+      </div>
+      <div class="menu-item category-hot">
+        <div class="item-info">
+          <h3>Moka White</h3>
+          <p>Hot</p>
+        </div>
+        <div class="item-price">80 / 85</div>
+      </div>
+      <div class="menu-item category-hot">
+        <div class="item-info">
+          <h3>Americano</h3>
+          <p>Hot</p>
+        </div>
+        <div class="item-price">50 / 60</div>
+      </div>
+      <div class="menu-item category-hot">
+        <div class="item-info">
+          <h3>Avocato</h3>
+          <p>Affogato</p>
+        </div>
+        <div class="item-price">55 / 65</div>
+      </div>
+      <div class="menu-item paper-style category-hot">
+        <div class="item-info">
+          <h3>Cappuccino</h3>
+          <p>Hot</p>
+        </div>
+        <div class="item-price">69</div>
+      </div>
+      <div class="menu-item category-hot">
+        <div class="item-info">
+          <h3>Flat White</h3>
+          <p>Hot</p>
+        </div>
+        <div class="item-price">72 / 75</div>
+      </div>
+      <div class="menu-item category-hot">
+        <div class="item-info">
+          <h3>Cortado</h3>
+          <p>Hot</p>
+        </div>
+        <div class="item-price">45 / 49</div>
+      </div>
+      <div class="menu-item category-hot">
+        <div class="item-info">
+          <h3>Macchiato</h3>
+          <p>Hot</p>
+        </div>
+        <div class="item-price">37 / 42</div>
+      </div>
+
+      <!-- Hot Chocolate Header -->
+      <div class="section-header-wrapper category-hot">
+        <div class="section-header">Hot Chocolate</div>
+      </div>
+      <div class="menu-item teal-style category-hot">
+        <div class="item-info">
+          <h3>Classic</h3>
+          <p>Hot Chocolate</p>
+        </div>
+        <div class="item-price">70 / 75</div>
+      </div>
+      <div class="menu-item category-hot">
+        <div class="item-info">
+          <h3>Coconut Hazelnut</h3>
+          <p>Hot Chocolate</p>
+        </div>
+        <div class="item-price">80</div>
+      </div>
+      <div class="menu-item category-hot">
+        <div class="item-info">
+          <h3>Hot Caramel</h3>
+          <p>Hot Chocolate</p>
+        </div>
+        <div class="item-price">65 / 70</div>
+      </div>
+      <div class="menu-item category-hot">
+        <div class="item-info">
+          <h3>Hot Oreo</h3>
+          <p>Hot Chocolate</p>
+        </div>
+        <div class="item-price">80 / 85</div>
+      </div>
+
+      <!-- ================= COLD SECTION ================= -->
+
+      <!-- Ice Coffee Header -->
+      <div class="section-header-wrapper category-cold">
+        <div class="section-header">Ice Coffee</div>
+      </div>
+      <div class="menu-item category-cold">
+        <div class="item-info">
+          <h3>Ice Coffee</h3>
+          <p>Cold</p>
+        </div>
+        <div class="item-price">75</div>
+      </div>
+      <div class="menu-item category-cold">
+        <div class="item-info">
+          <h3>Ice Latte</h3>
+          <p>Cold</p>
+        </div>
+        <div class="item-price">80</div>
+      </div>
+      <div class="menu-item category-cold">
+        <div class="item-info">
+          <h3>Ice Moka Dark</h3>
+          <p>Cold</p>
+        </div>
+        <div class="item-price">85</div>
+      </div>
+      <div class="menu-item category-cold">
+        <div class="item-info">
+          <h3>Ice Moka White</h3>
+          <p>Cold</p>
+        </div>
+        <div class="item-price">85</div>
+      </div>
+      <div class="menu-item category-cold">
+        <div class="item-info">
+          <h3>Ice Caramel Macchiato</h3>
+          <p>Cold</p>
+        </div>
+        <div class="item-price">85 / 88</div>
+      </div>
+      <div class="menu-item teal-style category-cold">
+        <div class="item-info">
+          <h3>Ice Spanish Latte</h3>
+          <p>Cold</p>
+        </div>
+        <div class="item-price">95 / 98</div>
+      </div>
+      <div class="menu-item category-cold">
+        <div class="item-info">
+          <h3>Ice Spanish Pistachio</h3>
+          <p>Cold</p>
+        </div>
+        <div class="item-price">108</div>
+      </div>
+      <div class="menu-item category-cold">
+        <div class="item-info">
+          <h3>Ice Chocolate</h3>
+          <p>Cold</p>
+        </div>
+        <div class="item-price">90 / 95</div>
+      </div>
+
+      <!-- Frappe Header -->
+      <div class="section-header-wrapper category-cold">
+        <div class="section-header">Frappe</div>
+      </div>
       <div class="menu-item paper-style category-cold">
         <div class="item-info">
           <h3>Blitz Frappe</h3>
           <p>Signature</p>
         </div>
-        <div class="item-price">120 LE</div>
+        <div class="item-price">120</div>
       </div>
       <div class="menu-item category-cold">
         <div class="item-info">
-          <h3>Ice Spanish Latte</h3>
-          <p>Cold Brew</p>
+          <h3>Frappuccino</h3>
+          <p>Blended</p>
         </div>
-        <div class="item-price">93 LE</div>
-      </div>
-      <div class="menu-item teal-style category-cold">
-        <div class="item-info">
-          <h3>Ice Americano</h3>
-          <p>Refresh</p>
-        </div>
-        <div class="item-price">65 LE</div>
+        <div class="item-price">85</div>
       </div>
       <div class="menu-item category-cold">
         <div class="item-info">
-          <h3>Ice Latte</h3>
-          <p>Smooth</p>
+          <h3>Vanilla Frappe</h3>
+          <p>Blended</p>
         </div>
-        <div class="item-price">80 LE</div>
+        <div class="item-price">70</div>
       </div>
       <div class="menu-item category-cold">
         <div class="item-info">
-          <h3>Pistachio Shake</h3>
-          <p>Rich Flavor</p>
+          <h3>Moka Frappe</h3>
+          <p>Blended</p>
         </div>
-        <div class="item-price">114 LE</div>
+        <div class="item-price">80</div>
       </div>
       <div class="menu-item category-cold">
         <div class="item-info">
-          <h3>Oreo Milkshake</h3>
-          <p>Cookies</p>
+          <h3>Chocolate Frappe</h3>
+          <p>Blended</p>
         </div>
-        <div class="item-price">99 LE</div>
+        <div class="item-price">75</div>
+      </div>
+      <div class="menu-item category-cold">
+        <div class="item-info">
+          <h3>Caramel Frappe</h3>
+          <p>Blended</p>
+        </div>
+        <div class="item-price">75</div>
+      </div>
+      <div class="menu-item category-cold">
+        <div class="item-info">
+          <h3>Pistachio Frappe</h3>
+          <p>Blended</p>
+        </div>
+        <div class="item-price">95</div>
+      </div>
+
+      <!-- Milkshake Header -->
+      <div class="section-header-wrapper category-cold">
+        <div class="section-header">Milkshake</div>
+      </div>
+      <div class="menu-item category-cold">
+        <div class="item-info">
+          <h3>Pistachio</h3>
+          <p>Shake</p>
+        </div>
+        <div class="item-price">114</div>
+      </div>
+      <div class="menu-item category-cold">
+        <div class="item-info">
+          <h3>Blueberry</h3>
+          <p>Shake</p>
+        </div>
+        <div class="item-price">95</div>
+      </div>
+      <div class="menu-item category-cold">
+        <div class="item-info">
+          <h3>Mix Berry</h3>
+          <p>Shake</p>
+        </div>
+        <div class="item-price">95</div>
+      </div>
+      <div class="menu-item category-cold">
+        <div class="item-info">
+          <h3>Coffee</h3>
+          <p>Shake</p>
+        </div>
+        <div class="item-price">90</div>
+      </div>
+      <div class="menu-item category-cold">
+        <div class="item-info">
+          <h3>Cheesecake</h3>
+          <p>Shake</p>
+        </div>
+        <div class="item-price">99</div>
+      </div>
+      <div class="menu-item category-cold">
+        <div class="item-info">
+          <h3>Mix Chocolate</h3>
+          <p>Shake</p>
+        </div>
+        <div class="item-price">99</div>
+      </div>
+      <div class="menu-item category-cold">
+        <div class="item-info">
+          <h3>Banana Nutella</h3>
+          <p>Shake</p>
+        </div>
+        <div class="item-price">95</div>
+      </div>
+      <div class="menu-item category-cold">
+        <div class="item-info">
+          <h3>Oreo</h3>
+          <p>Shake</p>
+        </div>
+        <div class="item-price">90 / 96</div>
+      </div>
+      <div class="menu-item category-cold">
+        <div class="item-info">
+          <h3>Nutella</h3>
+          <p>Shake</p>
+        </div>
+        <div class="item-price">95 / 98</div>
+      </div>
+      <div class="menu-item category-cold">
+        <div class="item-info">
+          <h3>Lotus</h3>
+          <p>Shake</p>
+        </div>
+        <div class="item-price">85</div>
+      </div>
+
+      <!-- Fresh Drinks Header -->
+      <div class="section-header-wrapper category-cold">
+        <div class="section-header">Fresh Drinks</div>
+      </div>
+      <div class="menu-item category-cold">
+        <div class="item-info">
+          <h3>Watermelon</h3>
+          <p>Fresh</p>
+        </div>
+        <div class="item-price">50 / 65</div>
+      </div>
+      <div class="menu-item category-cold">
+        <div class="item-info">
+          <h3>Limon Mint</h3>
+          <p>Fresh</p>
+        </div>
+        <div class="item-price">30 / 65</div>
+      </div>
+      <div class="menu-item category-cold">
+        <div class="item-info">
+          <h3>Guava</h3>
+          <p>Fresh</p>
+        </div>
+        <div class="item-price">45 / 65</div>
+      </div>
+      <div class="menu-item category-cold">
+        <div class="item-info">
+          <h3>Kiwi</h3>
+          <p>Fresh</p>
+        </div>
+        <div class="item-price">70</div>
       </div>
       <div class="menu-item paper-style category-cold">
         <div class="item-info">
-          <h3>Blitz Mojito</h3>
-          <p>Electric Blue</p>
+          <h3>Blitz Fresh</h3>
+          <p>Special</p>
         </div>
-        <div class="item-price">109 LE</div>
+        <div class="item-price">130</div>
       </div>
       <div class="menu-item category-cold">
         <div class="item-info">
-          <h3>Blue Ocean</h3>
-          <p>Soda</p>
+          <h3>Mango</h3>
+          <p>Fresh</p>
         </div>
-        <div class="item-price">70 LE</div>
+        <div class="item-price">48 / 70</div>
+      </div>
+      <div class="menu-item category-cold">
+        <div class="item-info">
+          <h3>Strawberry</h3>
+          <p>Fresh</p>
+        </div>
+        <div class="item-price">48 / 65</div>
+      </div>
+      <div class="menu-item category-cold">
+        <div class="item-info">
+          <h3>Dates</h3>
+          <p>With Milk</p>
+        </div>
+        <div class="item-price">70 / 75</div>
+      </div>
+      <div class="menu-item category-cold">
+        <div class="item-info">
+          <h3>Avocado</h3>
+          <p>Fresh</p>
+        </div>
+        <div class="item-price">90 / 95</div>
+      </div>
+
+      <!-- Smoothie Header -->
+      <div class="section-header-wrapper category-cold">
+        <div class="section-header">Smoothie</div>
+      </div>
+      <div class="menu-item category-cold">
+        <div class="item-info">
+          <h3>Watermelon</h3>
+          <p>Smoothie</p>
+        </div>
+        <div class="item-price">55 / 70</div>
+      </div>
+      <div class="menu-item category-cold">
+        <div class="item-info">
+          <h3>Lemon Mint</h3>
+          <p>Smoothie</p>
+        </div>
+        <div class="item-price">60</div>
+      </div>
+      <div class="menu-item category-cold">
+        <div class="item-info">
+          <h3>Blueberry</h3>
+          <p>Smoothie</p>
+        </div>
+        <div class="item-price">65</div>
+      </div>
+      <div class="menu-item category-cold">
+        <div class="item-info">
+          <h3>Peach</h3>
+          <p>Smoothie</p>
+        </div>
+        <div class="item-price">80</div>
+      </div>
+      <div class="menu-item category-cold">
+        <div class="item-info">
+          <h3>Pina Colada</h3>
+          <p>Smoothie</p>
+        </div>
+        <div class="item-price">85 / 90</div>
+      </div>
+
+      <!-- Mojito Header -->
+      <div class="section-header-wrapper category-cold">
+        <div class="section-header">Mojito</div>
+      </div>
+      <div class="menu-item category-cold">
+        <div class="item-info">
+          <h3>Passion Fruit</h3>
+          <p>Mojito</p>
+        </div>
+        <div class="item-price">60 / 70</div>
+      </div>
+      <div class="menu-item category-cold">
+        <div class="item-info">
+          <h3>Blue Moon</h3>
+          <p>Mojito</p>
+        </div>
+        <div class="item-price">70</div>
+      </div>
+      <div class="menu-item paper-style category-cold">
+        <div class="item-info">
+          <h3>Blitz Z</h3>
+          <p>Mojito</p>
+        </div>
+        <div class="item-price">120</div>
+      </div>
+      <div class="menu-item category-cold">
+        <div class="item-info">
+          <h3>Coco Blue</h3>
+          <p>Mojito</p>
+        </div>
+        <div class="item-price">100</div>
+      </div>
+      <div class="menu-item category-cold">
+        <div class="item-info">
+          <h3>Classic</h3>
+          <p>Mojito</p>
+        </div>
+        <div class="item-price">60 / 85</div>
+      </div>
+      <div class="menu-item category-cold">
+        <div class="item-info">
+          <h3>Blue Lemon</h3>
+          <p>Mojito</p>
+        </div>
+        <div class="item-price">60</div>
+      </div>
+      <div class="menu-item category-cold">
+        <div class="item-info">
+          <h3>Energy</h3>
+          <p>Mojito</p>
+        </div>
+        <div class="item-price">100</div>
+      </div>
+
+      <!-- Soda Header -->
+      <div class="section-header-wrapper category-cold">
+        <div class="section-header">Soda</div>
+      </div>
+      <div class="menu-item category-cold">
+        <div class="item-info">
+          <h3>Pepsi / 7up</h3>
+          <p>Soft Drink</p>
+        </div>
+        <div class="item-price">28 / 34</div>
       </div>
       <div class="menu-item category-cold">
         <div class="item-info">
           <h3>Redbull</h3>
           <p>Energy</p>
         </div>
-        <div class="item-price">85 LE</div>
+        <div class="item-price">75 / 88</div>
+      </div>
+      <div class="menu-item category-cold">
+        <div class="item-info">
+          <h3>Brill</h3>
+          <p>Soda</p>
+        </div>
+        <div class="item-price">40 / 50</div>
+      </div>
+      <div class="menu-item category-cold">
+        <div class="item-info">
+          <h3>Water</h3>
+          <p>Mineral</p>
+        </div>
+        <div class="item-price">10</div>
       </div>
 
-      <!-- === DESSERTS === -->
+      <!-- ================= DESSERT SECTION ================= -->
+
+      <!-- Waffle Header -->
+      <div class="section-header-wrapper category-dessert">
+        <div class="section-header">Waffle</div>
+      </div>
       <div class="menu-item teal-style category-dessert">
         <div class="item-info">
-          <h3>Waffle Nutella</h3>
-          <p>Chocolate</p>
+          <h3>Kinder</h3>
+          <p>Waffle</p>
         </div>
-        <div class="item-price">120 LE</div>
+        <div class="item-price">100</div>
       </div>
       <div class="menu-item category-dessert">
         <div class="item-info">
-          <h3>Waffle Kinder</h3>
-          <p>Kids Love it</p>
+          <h3>Butter & Honey</h3>
+          <p>Waffle</p>
         </div>
-        <div class="item-price">100 LE</div>
+        <div class="item-price">80</div>
       </div>
       <div class="menu-item category-dessert">
         <div class="item-info">
-          <h3>San Sebastian</h3>
-          <p>Burnt Cake</p>
+          <h3>Nutella</h3>
+          <p>Waffle</p>
         </div>
-        <div class="item-price">99 LE</div>
+        <div class="item-price">100 / 120</div>
       </div>
       <div class="menu-item paper-style category-dessert">
         <div class="item-info">
-          <h3>Molten Cake</h3>
-          <p>Lava</p>
+          <h3>Your Choice</h3>
+          <p>Mix Waffle</p>
         </div>
-        <div class="item-price">95 LE</div>
+        <div class="item-price">140</div>
+      </div>
+      <div class="menu-item category-dessert">
+        <div class="item-info">
+          <h3>Chocolate</h3>
+          <p>Waffle</p>
+        </div>
+        <div class="item-price">85</div>
+      </div>
+      <div class="menu-item category-dessert">
+        <div class="item-info">
+          <h3>White Chocolate</h3>
+          <p>Waffle</p>
+        </div>
+        <div class="item-price">95 / 100</div>
+      </div>
+      <div class="menu-item category-dessert">
+        <div class="item-info">
+          <h3>Lotus</h3>
+          <p>Waffle</p>
+        </div>
+        <div class="item-price">90 / 100</div>
+      </div>
+      <div class="menu-item category-dessert">
+        <div class="item-info">
+          <h3>Pistachio</h3>
+          <p>Waffle</p>
+        </div>
+        <div class="item-price">130</div>
+      </div>
+
+      <!-- Desserts Header -->
+      <div class="section-header-wrapper category-dessert">
+        <div class="section-header">Desserts</div>
+      </div>
+      <div class="menu-item category-dessert">
+        <div class="item-info">
+          <h3>Cinnabon / Cake</h3>
+          <p>Dessert</p>
+        </div>
+        <div class="item-price">95</div>
+      </div>
+      <div class="menu-item paper-style category-dessert">
+        <div class="item-info">
+          <h3>San Sebastian</h3>
+          <p>Dessert</p>
+        </div>
+        <div class="item-price">99</div>
       </div>
       <div class="menu-item category-dessert">
         <div class="item-info">
           <h3>Cheesecake</h3>
-          <p>Slice</p>
+          <p>Dessert</p>
         </div>
-        <div class="item-price">74 LE</div>
+        <div class="item-price">74 / 78</div>
       </div>
-    </div>
+      <div class="menu-item teal-style category-dessert">
+        <div class="item-info">
+          <h3>Molten Cake</h3>
+          <p>Dessert</p>
+        </div>
+        <div class="item-price">90 / 95</div>
+      </div>
+      <div class="menu-item category-dessert">
+        <div class="item-info">
+          <h3>Tiramisu / Truffle</h3>
+          <p>Dessert</p>
+        </div>
+        <div class="item-price">89</div>
+      </div>
+      <div class="menu-item category-dessert">
+        <div class="item-info">
+          <h3>Red Velvet</h3>
+          <p>Dessert</p>
+        </div>
+        <div class="item-price">86</div>
+      </div>
+      <div class="menu-item category-dessert">
+        <div class="item-info">
+          <h3>Ferrero Rocher</h3>
+          <p>Dessert</p>
+        </div>
+        <div class="item-price">97</div>
+      </div>
 
-    <button class="order-btn" onclick="alert('⚡ Your Order is Charging...')">
-      Order Now
-    </button>
-
-    <div class="marquee-container">
-      <div class="marquee-content">
-        BLITZ CAFE /// CHARGE YOUR MOOD /// HIGH VOLTAGE COFFEE /// GOOD VIBES
-        ONLY /// OPEN 24/7
+      <!-- Extras Header -->
+      <div
+        class="section-header-wrapper category-hot category-cold category-dessert"
+      >
+        <div class="section-header">Extra</div>
+      </div>
+      <div class="menu-item category-hot category-cold category-dessert">
+        <div class="item-info">
+          <h3>Extra Sauce</h3>
+          <p>Add-on</p>
+        </div>
+        <div class="item-price">25</div>
+      </div>
+      <div class="menu-item category-hot">
+        <div class="item-info">
+          <h3>Extra Espresso</h3>
+          <p>Add-on</p>
+        </div>
+        <div class="item-price">22</div>
+      </div>
+      <div class="menu-item category-hot">
+        <div class="item-info">
+          <h3>Extra Milk</h3>
+          <p>Add-on</p>
+        </div>
+        <div class="item-price">15</div>
+      </div>
+      <div class="menu-item category-dessert">
+        <div class="item-info">
+          <h3>Extra Nuts</h3>
+          <p>Add-on</p>
+        </div>
+        <div class="item-price">25</div>
+      </div>
+      <div class="menu-item category-cold">
+        <div class="item-info">
+          <h3>Extra Cup Ice</h3>
+          <p>Add-on</p>
+        </div>
+        <div class="item-price">5</div>
+      </div>
+      <div class="menu-item category-dessert">
+        <div class="item-info">
+          <h3>Extra Ice Cream</h3>
+          <p>Add-on</p>
+        </div>
+        <div class="item-price">15</div>
       </div>
     </div>
 
     <script>
       function filterMenu(category) {
         const items = document.querySelectorAll(".menu-item");
+        const headers = document.querySelectorAll(".section-header-wrapper");
         const btns = document.querySelectorAll(".cat-btn");
 
         btns.forEach((btn) => btn.classList.remove("active"));
         event.target.classList.add("active");
 
+        // Filter Items
         items.forEach((item) => {
           if (
             category === "all" ||
             item.classList.contains(`category-${category}`)
           ) {
+            item.classList.remove("hidden");
             item.style.display = "flex";
-            item.style.animation = "glitch-skew 0.3s ease";
           } else {
+            item.classList.add("hidden");
             item.style.display = "none";
           }
         });
-      }
 
-      setInterval(() => {
-        const title = document.querySelector(".glitch-text");
-        // تبديل بين ألوان الكافيه في الجليتش
-        const randomColor = Math.random() > 0.5 ? "#ffc107" : "#00bcd4";
-        const offset1 = Math.random() * 4 - 2;
-        const offset2 = Math.random() * 4 - 2;
-        title.style.textShadow = `${offset1}px ${offset2}px ${randomColor}`;
-      }, 150);
+        // Filter Headers
+        headers.forEach((header) => {
+          if (
+            category === "all" ||
+            header.classList.contains(`category-${category}`)
+          ) {
+            header.classList.remove("hidden");
+            header.style.display = "flex";
+          } else {
+            header.classList.add("hidden");
+            header.style.display = "none";
+          }
+        });
+      }
     </script>
   </body>
 </html>
