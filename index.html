@@ -325,8 +325,9 @@
         justify-content: center;
         text-transform: uppercase;
         line-height: 1.1;
+        flex-direction: column;
+        gap: 10px;
       }
-
       .spin-btn {
         background: var(--brand-red);
         color: #fff;
@@ -1375,7 +1376,6 @@
         if (isSpinning) return;
         document.getElementById("gameModal").style.display = "none";
 
-        // إعادة تعيين النص والشكل
         const resultDisplay = document.getElementById("gameResult");
         resultDisplay.innerText = "???";
         resultDisplay.style.color = "var(--brand-yellow)";
@@ -1386,8 +1386,7 @@
       function spinWheel() {
         if (isSpinning) return;
 
-        // 1. تجميع العناصر الظاهرة فقط + استثناء الإضافات
-        // نختار العنصر الأب (menu-item) لنتمكن من جلب الاسم والوصف معاً
+        // 1. تجميع العناصر الظاهرة فقط (بدون الإضافات)
         const visibleItems = document.querySelectorAll(
           ".menu-item:not(.hidden):not(.extra-item)"
         );
@@ -1395,17 +1394,16 @@
         currentPool = [];
 
         visibleItems.forEach((item) => {
-          // جلب الاسم (h3)
           const name = item.querySelector(".item-info h3").innerText;
-          // جلب الوصف (p) لمعرفة النوع (Fresh, Smoothie, etc.)
           const desc = item.querySelector(".item-info p").innerText;
 
-          // تخزين النص كـ HTML منسق
-          // الاسم بخط كبير، وتحته الوصف بخط أصغر
+          // هنا التغيير: وضعنا كل جزء في div منفصل
+          // div للاسم، و div آخر للوصف بخط أصغر
           if (name) {
-            currentPool.push(
-              `${name}<br><span style="font-size: 0.5em; opacity: 0.8;">(${desc})</span>`
-            );
+            currentPool.push(`
+                  <div>${name}</div>
+                  <div style="font-size: 0.5em; opacity: 0.7;">${desc}</div>
+                `);
           }
         });
 
@@ -1422,14 +1420,14 @@
         // حركة التبديل السريع
         let interval = setInterval(() => {
           const randomIndex = Math.floor(Math.random() * currentPool.length);
-          // نستخدم innerHTML بدلاً من innerText لأننا أضفنا أكواد HTML (السطر الجديد وتصغير الخط)
+          // innerHTML لأننا نستخدم div داخل النص
           resultDisplay.innerHTML = currentPool[randomIndex];
 
           resultDisplay.style.color =
             Math.random() > 0.5 ? "#fff" : "var(--brand-yellow)";
         }, 50);
 
-        // التوقف وإظهار الفائز
+        // التوقف وإظهار النتيجة
         setTimeout(() => {
           clearInterval(interval);
           const winnerIndex = Math.floor(Math.random() * currentPool.length);
