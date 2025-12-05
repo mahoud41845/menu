@@ -1364,17 +1364,8 @@
       }
 
       /* --- SPIN GAME LOGIC --- */
-      let allItems = [];
-      let availableItems = [];
       let isSpinning = false;
-
-      window.onload = function () {
-        const itemElements = document.querySelectorAll(".item-info h3");
-        itemElements.forEach((el) => {
-          if (el.innerText) allItems.push(el.innerText);
-        });
-        availableItems = [...allItems];
-      };
+      let currentPool = [];
 
       function openGame() {
         document.getElementById("gameModal").style.display = "flex";
@@ -1383,39 +1374,68 @@
       function closeGame() {
         if (isSpinning) return;
         document.getElementById("gameModal").style.display = "none";
+
+        // إعادة تعيين النص والشكل
+        const resultDisplay = document.getElementById("gameResult");
+        resultDisplay.innerText = "???";
+        resultDisplay.style.color = "var(--brand-yellow)";
+        resultDisplay.style.textShadow = "none";
+        document.getElementById("spinBtn").innerText = "SPIN IT!";
       }
 
       function spinWheel() {
         if (isSpinning) return;
 
+        // 1. تجميع العناصر الظاهرة فقط + استثناء الإضافات
+        // نختار العنصر الأب (menu-item) لنتمكن من جلب الاسم والوصف معاً
+        const visibleItems = document.querySelectorAll(
+          ".menu-item:not(.hidden):not(.extra-item)"
+        );
+
+        currentPool = [];
+
+        visibleItems.forEach((item) => {
+          // جلب الاسم (h3)
+          const name = item.querySelector(".item-info h3").innerText;
+          // جلب الوصف (p) لمعرفة النوع (Fresh, Smoothie, etc.)
+          const desc = item.querySelector(".item-info p").innerText;
+
+          // تخزين النص كـ HTML منسق
+          // الاسم بخط كبير، وتحته الوصف بخط أصغر
+          if (name) {
+            currentPool.push(
+              `${name}<br><span style="font-size: 0.5em; opacity: 0.8;">(${desc})</span>`
+            );
+          }
+        });
+
         const resultDisplay = document.getElementById("gameResult");
 
-        if (availableItems.length === 0) {
-          resultDisplay.innerText = "RESETTING LIST...";
-          setTimeout(() => {
-            availableItems = [...allItems];
-            resultDisplay.innerText = "READY!";
-          }, 1000);
+        if (currentPool.length === 0) {
+          resultDisplay.innerText = "NO ITEMS!";
           return;
         }
 
         isSpinning = true;
         document.getElementById("spinBtn").innerText = "SPINNING...";
 
+        // حركة التبديل السريع
         let interval = setInterval(() => {
-          const randomIndex = Math.floor(Math.random() * allItems.length);
-          resultDisplay.innerText = allItems[randomIndex];
+          const randomIndex = Math.floor(Math.random() * currentPool.length);
+          // نستخدم innerHTML بدلاً من innerText لأننا أضفنا أكواد HTML (السطر الجديد وتصغير الخط)
+          resultDisplay.innerHTML = currentPool[randomIndex];
+
           resultDisplay.style.color =
             Math.random() > 0.5 ? "#fff" : "var(--brand-yellow)";
         }, 50);
 
+        // التوقف وإظهار الفائز
         setTimeout(() => {
           clearInterval(interval);
-          const winnerIndex = Math.floor(Math.random() * availableItems.length);
-          const winner = availableItems[winnerIndex];
-          availableItems.splice(winnerIndex, 1);
+          const winnerIndex = Math.floor(Math.random() * currentPool.length);
+          const winner = currentPool[winnerIndex];
 
-          resultDisplay.innerText = winner;
+          resultDisplay.innerHTML = winner;
           resultDisplay.style.color = "var(--brand-teal)";
           resultDisplay.style.textShadow = "0 0 10px #fff";
 
