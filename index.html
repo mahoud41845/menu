@@ -37,7 +37,7 @@
           ),
           linear-gradient(90deg, rgba(0, 188, 212, 0.1) 1px, transparent 1px);
         background-size: 30px 30px;
-        padding-bottom: 80px;
+        padding-bottom: 30px;
       }
 
       /* --- HEADER --- */
@@ -208,8 +208,7 @@
         z-index: 1;
       }
 
-      /* --- MENU GRID --- */
-      .menu-grid {
+       .menu-grid {
         padding: 15px;
         display: grid;
         gap: 15px;
@@ -230,8 +229,7 @@
         border-radius: 4px;
       }
 
-      /* Styles */
-      .paper-style {
+       .paper-style {
         background: var(--brand-yellow);
         color: #000;
         border: 2px solid #000;
@@ -1380,12 +1378,12 @@
             d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.698c.969.585 1.961.893 3.018.893 3.181 0 5.768-2.587 5.768-5.765.001-3.186-2.59-5.777-5.99-5.781zm6.16 9.851c-.168.423-.585.801-1.048.979-.472.182-1.092.215-3.605-.839-2.277-.954-3.864-3.321-4.103-3.639-.241-.321-1.009-1.341-1.009-2.562 0-1.22.617-1.815.867-2.09.208-.226.549-.297.876-.297.108 0 .216.006.315.016.273.027.425.074.58.448.196.474.672 1.636.732 1.756.06.12.1.26.02.419-.08.16-.12.26-.239.401-.121.14-.251.309-.36.417-.12.12-.245.25-.106.49.14.24.618 1.019 1.353 1.674.95.847 1.728 1.109 2.028 1.25.3.14.475.12.654-.08.18-.22.771-.899.979-1.209.209-.309.419-.259.709-.15.29.11 1.838.869 2.158 1.029.319.159.528.24.608.37.079.13.079.76-.089 1.183z"
           />
         </svg>
-        Mahroxin
+        M²G
       </a>
     </footer>
 
     <script>
-       function filterMenu(category) {
+      function filterMenu(category) {
         const items = document.querySelectorAll(".menu-item");
         const headers = document.querySelectorAll(".section-header-wrapper");
         const btns = document.querySelectorAll(".cat-btn");
@@ -1420,7 +1418,7 @@
         });
       }
 
-       let isSpinning = false;
+      let isSpinning = false;
       let currentPool = [];
 
       function openGame() {
